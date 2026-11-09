@@ -7,6 +7,7 @@ pipeline {
         POWERSHELL_HOME = 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0'
         ANDROID_HOME = 'C:\\Users\\srypo\\AppData\\Local\\Android\\Sdk'
         JAVA_HOME = 'C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.21.9-hotspot'
+        GRADLE_USER_HOME = 'C:\\ProgramData\\Jenkins\\.jenkins\\gradle-cache'
         // Keep Flutter's JDK setting local to this Jenkins workspace.
         APPDATA = "${env.WORKSPACE}@tmp\\flutter-config"
         
