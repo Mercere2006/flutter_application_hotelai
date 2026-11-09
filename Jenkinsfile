@@ -7,6 +7,8 @@ pipeline {
         POWERSHELL_HOME = 'C:\\Windows\\System32\\WindowsPowerShell\\v1.0'
         ANDROID_HOME = 'C:\\Users\\srypo\\AppData\\Local\\Android\\Sdk'
         JAVA_HOME = 'C:\\Program Files\\Eclipse Adoptium\\jdk-17.0.21.9-hotspot'
+        // Keep Flutter's JDK setting local to this Jenkins workspace.
+        APPDATA = "${env.WORKSPACE}@tmp\\flutter-config"
         
         PATH = "${JAVA_HOME}\\bin;${FLUTTER_HOME}\\bin;${GIT_HOME};C:\\Windows\\System32;${POWERSHELL_HOME};${ANDROID_HOME}\\cmdline-tools\\latest\\bin;${ANDROID_HOME}\\platform-tools;${env.PATH}"
     }
@@ -16,6 +18,7 @@ pipeline {
             steps {
                 bat 'git config --global --add safe.directory "*"'
                 bat 'java -version'
+                bat 'flutter config --jdk-dir "%JAVA_HOME%"'
                 bat 'flutter --version'
             }
         }
