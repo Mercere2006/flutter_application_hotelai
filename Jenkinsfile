@@ -23,19 +23,14 @@ pipeline {
         stage('Get Dependencies') {
             steps {
                 echo 'Getting Flutter dependencies...'
-                dir('flutter_application_hotelai') {
-                    bat 'flutter pub get'
-                }
+                bat 'flutter pub get'
             }
         }
 
         stage('Build APK') {
             steps {
                 echo 'Building Android APK...'
-                dir('flutter_application_hotelai') {
-                    bat 'cd android && gradlew --stop'
-                    bat 'flutter build apk --release'
-                }
+                bat 'flutter build apk --release'
             }
         }
     }
